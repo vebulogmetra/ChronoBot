@@ -174,17 +174,15 @@ async def fetch_all_events_handler(clbck: CallbackQuery, db_session: AsyncSessio
         await clbck.answer(st.server_error)
         return
     if events:
-        for e in events:
-            e = EventFromAPI(**e)
+        for event in events:
             await clbck.message.answer(
                 st.event_show.format(
-                    title=e.title,
-                    description=e.description,
-                    expired_at=e.expired_at,
-                    notify_at=e.notify_at,
-                    created_at=e.created_at,
-                    owner_id=e.owner_id,
-                    id=e.id,
+                    title=event.title,
+                    description=event.description,
+                    expired_at=event.expired_at,
+                    notify_at=event.notify_at,
+                    created_at=event.created_at,
+                    owner_id=event.owner_id,
                 ),
                 reply_markup=get_keyboard(KeyboardType.ADMIN_MENU),
             )
