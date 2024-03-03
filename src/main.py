@@ -1,21 +1,20 @@
 import asyncio
 import logging
 from datetime import datetime
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from aiogram import Bot, Dispatcher
+from aiogram import (Bot, Dispatcher)
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.strategy import FSMStrategy
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-from database.engine import create_db, session
+from database.engine import (create_db, session)
 from middlewares.db import DataBaseSession
 from middlewares.schedule import SchedulerMiddleware
 from routers.callbacks import router as callbacks_router
 from routers.commands import router as commands_router
 from routers.events import router as events_router
 from settings import BOT_TOKEN
-
 
 bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
 dp = Dispatcher(storage=MemoryStorage(), fsm_strategy=FSMStrategy.USER_IN_CHAT)

@@ -1,16 +1,16 @@
 from datetime import datetime as dt
 from datetime import time
 
-from aiogram import F, Router
+from aiogram import (F, Router)
 from aiogram.filters.callback_data import CallbackData
 from aiogram.fsm.context import FSMContext
-from aiogram.types import CallbackQuery, Message
-from aiogram_calendar import SimpleCalendar, SimpleCalendarCallback
+from aiogram.types import (CallbackQuery, Message)
+from aiogram_calendar import (SimpleCalendar, SimpleCalendarCallback)
 
-from kb import KeyboardType, get_keyboard
+from kb import (KeyboardType, get_keyboard)
 from mappers import tg_to_db_format
 from res import strings as st
-from schemas import EventForDB, EventFromTelegramUser
+from schemas import (EventForDB, EventFromTelegramUser)
 from states import CreateEvent
 from utils import validate_time_string
 

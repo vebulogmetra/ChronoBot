@@ -1,6 +1,6 @@
-from datetime import datetime, timedelta
+from datetime import (datetime, timedelta)
 
-from schemas import EventForAPI, EventForDB, EventFromTelegramUser
+from schemas import (EventForAPI, EventForDB, EventFromTelegramUser)
 
 
 def tg_to_api_format(event_data: EventFromTelegramUser) -> EventForAPI:

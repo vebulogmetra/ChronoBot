@@ -44,16 +44,16 @@ class AdminMenu(KeyboardFactory):
         admin_menu_kb = [
             [
                 InlineKeyboardButton(
-                    text="📝 Создать новое событие", callback_data="create_event"
+                    text="📝 Создать событие", callback_data="create_event"
                 ),
                 InlineKeyboardButton(
-                    text="📄 Прислать список всех моих событий",
+                    text="📄 Мои события",
                     callback_data="fetch_user_events",
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="🔎 Прислать список событий на сегоня",
+                    text="🔎 Мои события на сегодня",
                     callback_data="fetch_user_today_events",
                 ),
                 InlineKeyboardButton(
@@ -69,6 +69,12 @@ class AdminMenu(KeyboardFactory):
                 InlineKeyboardButton(
                     text="📔 Все события",
                     callback_data="fetch_all_events",
+                ),
+            ],
+            [
+                InlineKeyboardButton(
+                    text="⌚️ Все задания (cron)",
+                    callback_data="show_cronjobs",
                 ),
             ],
         ]

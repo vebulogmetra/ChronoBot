@@ -1,10 +1,11 @@
-from sqlalchemy import select, and_, func, delete, update
-from sqlalchemy.ext.asyncio import AsyncSession
-
-from database.models import Event, User
-from schemas import EventForDB, UserForDB
 import logging
 from datetime import datetime
+
+from sqlalchemy import (and_, delete, func, select, update)
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from database.models import (Event, User)
+from schemas import (EventForDB, UserForDB)
 
 logger = logging.getLogger(__name__)
 

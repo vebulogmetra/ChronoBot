@@ -1,23 +1,24 @@
-from aiogram import F, Router, Bot
+import logging
+from datetime import datetime
+
+from aiogram import Bot, F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.types import CallbackQuery
-from sqlalchemy.ext.asyncio import AsyncSession
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from datetime import datetime
-import logging
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from database.crud import (
     create_event,
-    get_user_events,
-    get_all_users,
-    get_all_events,
-    get_user_today_events,
     delete_event,
+    get_all_events,
+    get_all_users,
+    get_user_events,
+    get_user_today_events,
 )
+from database.models import Event, User
 from kb import KeyboardType, get_keyboard, get_remove_keyboard
 from mappers import tg_to_db_format
 from res import strings as st
-from database.models import User, Event
 from schemas import EventForDB, EventFromAPI, EventFromTelegramUser
 from utils import remind_user
 
@@ -113,7 +114,7 @@ async def save_event_to_db_handler(
         day=day,
         hour=hour,
         minute=minute,
-        args=(event_data.owner_id, event_data.id, remind_message, bot),
+        args=(event_data.owner_id, remind_message, bot),
     )
 
     await state.clear()

@@ -1,7 +1,7 @@
-import re
-from aiogram import Bot
 import logging
-from database.crud import make_reminded_event
+import re
+
+from aiogram import Bot
 
 logger = logging.getLogger(__name__)
 

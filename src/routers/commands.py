@@ -1,15 +1,15 @@
-from aiogram import F, Router
-from aiogram.filters import Command, StateFilter
+from aiogram import (F, Router)
+from aiogram.filters import (Command, StateFilter)
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 from sqlalchemy.ext.asyncio import AsyncSession
-from database.crud import create_user, get_user_by_id
-from kb import KeyboardType, get_keyboard
+
+from database.crud import (create_user, get_user_by_id)
+from kb import (KeyboardType, get_keyboard)
 from res import strings as st
-from states import CreateEvent
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from schemas import UserForDB
 from settings import ADMIN_ID
+from states import CreateEvent
 
 router = Router()
 
